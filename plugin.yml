@@ -1,0 +1,9 @@
+name: PowerCitizens
+main: com.mrpowergamerbr.powercitizens.PowerCitizens
+version: "1.0.0"
+author: MrPowerGamerBR
+api: ["1.0.0"]
+description: NPCs!
+commands:
+  npc:
+    description: Spawnar um NPC
