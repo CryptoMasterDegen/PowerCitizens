@@ -30,6 +30,10 @@ public class NPC {
 		rand = new Random();
 	}
 
+	public void despawn(Player p) {
+		
+	}
+	
 	@SuppressWarnings("rawtypes")
 	public void spawn(Player p) {
 		AddPlayerPacket npc = new AddPlayerPacket();
