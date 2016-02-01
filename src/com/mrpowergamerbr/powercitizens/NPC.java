@@ -3,7 +3,6 @@ package com.mrpowergamerbr.powercitizens;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.UUID;
 
@@ -11,7 +10,7 @@ import javax.imageio.ImageIO;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;
-import cn.nukkit.entity.data.EntityData;
+import cn.nukkit.entity.data.EntityMetadata;
 import cn.nukkit.entity.data.Skin;
 import cn.nukkit.item.Item;
 import cn.nukkit.network.protocol.AddPlayerPacket;
@@ -34,7 +33,6 @@ public class NPC {
 		
 	}
 	
-	@SuppressWarnings("rawtypes")
 	public void spawn(Player p) {
 		AddPlayerPacket npc = new AddPlayerPacket();
 
@@ -47,7 +45,7 @@ public class NPC {
 		npc.item = item;
 		npc.pitch = pitch;
 		npc.yaw = yaw;
-		npc.metadata = new HashMap<Integer, EntityData>();
+		npc.metadata = new EntityMetadata();
 		npc.speedX = 0;
 		npc.speedY = 0;
 		npc.speedZ = 0;

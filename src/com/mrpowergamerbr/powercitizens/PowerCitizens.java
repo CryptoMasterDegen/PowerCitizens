@@ -38,15 +38,15 @@ public class PowerCitizens extends PluginBase implements Listener {
 			for (Entry<String, Object> n1 : j.entrySet()) {
 				String name = n1.getKey();
 				NPC npc = new NPC();
-				npc.x = Float.parseFloat((double) dreemurr.getNested("NPCs." + name + ".X") + "");
-				npc.y = Float.parseFloat((double) dreemurr.getNested("NPCs." + name + ".Y") + "");
-				npc.z = Float.parseFloat((double) dreemurr.getNested("NPCs." + name + ".Z") + "");
-				npc.skin = (String) dreemurr.getNested("NPCs." + name + ".Skin");
-				npc.worldName = (String) dreemurr.getNested("NPCs." + name + ".World");
-				npc.yaw = Float.parseFloat((double) dreemurr.getNested("NPCs." + name + ".Yaw") + "");
-				npc.pitch = Float.parseFloat((double) dreemurr.getNested("NPCs." + name + ".Pitch") + "");
-				npc.item = new Item((int) dreemurr.getNested("NPCs." + name + ".Item"));
-				npc.name = (String) dreemurr.getNested("NPCs." + name + ".Name");
+				npc.x = Float.parseFloat((double) dreemurr.getDouble("NPCs." + name + ".X") + "");
+				npc.y = Float.parseFloat((double) dreemurr.getDouble("NPCs." + name + ".Y") + "");
+				npc.z = Float.parseFloat((double) dreemurr.getDouble("NPCs." + name + ".Z") + "");
+				npc.skin = (String) dreemurr.getString("NPCs." + name + ".Skin");
+				npc.worldName = (String) dreemurr.getString("NPCs." + name + ".World");
+				npc.yaw = Float.parseFloat((double) dreemurr.getDouble("NPCs." + name + ".Yaw") + "");
+				npc.pitch = Float.parseFloat((double) dreemurr.getDouble("NPCs." + name + ".Pitch") + "");
+				npc.item = new Item((int) dreemurr.getInt("NPCs." + name + ".Item"));
+				npc.name = (String) dreemurr.getString("NPCs." + name + ".Name");
 				npc.m = this;
 				
 				npcs.add(npc);
@@ -57,19 +57,19 @@ public class PowerCitizens extends PluginBase implements Listener {
 	}
 	
 	public void onDisable() {
-		dreemurr.removeNested("NPCs");
+		dreemurr.remove("NPCs");
 		int index = 1;
 		for (NPC npc : npcs) {
 			System.out.println(npc.name);
-			dreemurr.setNested("NPCs." + index + ".X", npc.x);
-			dreemurr.setNested("NPCs." + index + ".Y", npc.y);
-			dreemurr.setNested("NPCs." + index + ".Z", npc.z);
-			dreemurr.setNested("NPCs." + index + ".Skin", npc.skin);
-			dreemurr.setNested("NPCs." + index + ".World", npc.worldName);
-			dreemurr.setNested("NPCs." + index + ".Yaw", npc.yaw);
-			dreemurr.setNested("NPCs." + index + ".Pitch", npc.pitch);
-			dreemurr.setNested("NPCs." + index + ".Item", npc.item.getId());
-			dreemurr.setNested("NPCs." + index + ".Name", npc.name);
+			dreemurr.set("NPCs." + index + ".X", npc.x);
+			dreemurr.set("NPCs." + index + ".Y", npc.y);
+			dreemurr.set("NPCs." + index + ".Z", npc.z);
+			dreemurr.set("NPCs." + index + ".Skin", npc.skin);
+			dreemurr.set("NPCs." + index + ".World", npc.worldName);
+			dreemurr.set("NPCs." + index + ".Yaw", npc.yaw);
+			dreemurr.set("NPCs." + index + ".Pitch", npc.pitch);
+			dreemurr.set("NPCs." + index + ".Item", npc.item.getId());
+			dreemurr.set("NPCs." + index + ".Name", npc.name);
 			index++;
 		}
 		
